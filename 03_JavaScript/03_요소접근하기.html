@@ -60,8 +60,66 @@
 
     <hr>
 
-    <div class="area" style="background: yellowgreen;"></div>
-    <button>다음 시간은 실습시간</button>
+    <div id="colorDiv" class="area" style="background: yellowgreen;"></div>
+    <button id="colorBtn">무지개 색깔</button>
+
+    <!--
+
+        버튼을 클릭할 때 마다
+
+        div요소 색상이 변경되도록
+
+        일곱빛깔 돌리기 ==> 자바했을 때 조건문을 떠올리기
+
+    -->
+
+    <script>
+
+        
+
+        const colorBtn = document.querySelector("#color-btn");
+
+        colorBtn.onclick = function () {
+            const colorDiv = document.querySelector("#color-div");
+            //console.log(colorDiv);
+
+            // 색깔 바꾸기
+            if (colorDiv.style.backgroundColor == "yellowgreen") {
+                colorDiv.style.backgroundColor = "yellow";
+            } else if (colorDiv.style.backgroundColor == "yellow") {
+                colorDiv.style.backgroundColor = "lightyellow";
+            } else if (colorDiv.style.backgroundColor == "lightyellow") {
+                colorDiv.style.backgroundColor = "gold";
+            } else if (colorDiv.style.backgroundColor == "gold") {
+                colorDiv.style.backgroundColor = "beige";
+            } else if (colorDiv.style.backgroundColor == "beige") {
+                colorDiv.style.backgroundColor = "grennyellow";
+            } else (colorDiv.style.backgroundColor == "grennyellow") 
+                colorDiv.style.backgroundColor = "yellowgreen";
+            
+        }
+    </script>
+
+    <hr>
+
+    <h3> 2) 태그명으로 접근하는 방법 </h3>
+
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+
+    <button onclick="tag();"> 태그명으로 접근하기 </button>
+
+    <script>
+        function tag(){
+
+            // document.getElmentsByTagName('태그명');
+        }
+    </script>
 
 
 
