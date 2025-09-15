@@ -60,8 +60,8 @@
 
     <hr>
 
-    <div id="colorDiv" class="area" style="background: yellowgreen;"></div>
-    <button id="colorBtn">무지개 색깔</button>
+    <div id="color-div" class="area" style="background: yellowgreen;"></div>
+    <button id="color-btn">무지개 색깔</button>
 
     <!--
 
@@ -118,6 +118,14 @@
         function tag(){
 
             // document.getElmentsByTagName('태그명');
+            const array = document.getElementsByTagName("li");
+
+            console.log(array);
+            console.log(array.length);
+            // 선택된 여러 개의 요소객체들이 배열 형태로 담겨서 반환
+            // 자바스크립트에서 배열은 [] 로 표현
+
+            array[0].style.backgroundColor = 'red';
         }
     </script>
 
