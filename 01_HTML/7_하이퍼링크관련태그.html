@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>앵커태그</title>
+</head>
+<body>
+    <!--
+        HyperLink
+        비선형적인 구조로 웹 문서에서 또 다른 문서로 이동할 수 있게끔
+        연결시켜주는 기능
+    -->
+
+    <h1>a태그를 이용한 하이퍼링크</h1>
+
+    <a href="6_영역관련태그.html">영역이다</a>
+    <!--현재 인터넷이 연결된 상황이라면 서비스하고 있는 웹페이지로 링크 가능-->
+    <a href="http://www.google.com">네이버로~</a>
+
+    <ul id="list">
+        <li><a href="http://www.naver.com" target="_self">네이버</a></li>
+        <li><a href="http://www.google.com" target="_blank">구글</a></li>
+    </ul>
+
+    <h3>이미지 클릭해서 링크 연결해보기</h3>
+
+    <a href="https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&ssc=tab.nx.all&query=%EB%8B%A8%ED%92%8D+%EA%B0%9C%ED%99%94%EC%8B%9C%EA%B8%B0&oquery=%EB%8B%A8%ED%92%8D+%EA%B0%9C%ED%99%94&tqi=jKvOXsqo1awssEBZZoVssssstgs-154371&ackey=hf1llso4">
+        <img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjEwMjdfMTM3%2FMDAxNjY2ODU2Mjk0NTI1.XGLlb7qgdX2fEzI4DhRkHxcDdiD3954mWCzm704SwM0g.ffAr4tsidMjTo1KQKn_mV0GofsBO4m3sYR2tvrzLqjwg.JPEG.braincoach_%2F%25C0%25FC%25B1%25B9_%25B4%25DC%25C7%25B3%25B0%25B3%25C8%25AD%25BD%25C3%25B1%25E2%252C_%25B4%25DC%25C7%25B3%25B8%25ED%25BC%25D2.jpg&type=sc960_832"
+             alt="단풍임">
+    </a>
+
+    <br/><br><br/>
+    <style>
+        #btn{
+            text-decoration : none;
+            display : block;
+            width : 185px;
+            height : 80px;
+            background-color : orangered;
+            border: 1px solid black;
+            border-radius : 15px;
+            :hover{
+                text-decoration : underline;
+                background-color : yellow;
+            }
+        }
+    </style>   
+    <a href="2_표관련태그.html" target="_blank" id="btn">
+        <div>표관련태그 보러가기</div>
+    </a>
+
+    <h4>한 페이지 내에서 점프점프 시키기</h4>
+
+    <br><br><br><br><br><br><br><br>
+
+    <a href="#list">위로가기</a>
+
+    
+</body>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</html>

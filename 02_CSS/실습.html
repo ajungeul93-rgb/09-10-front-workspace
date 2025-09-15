@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        /* 기본적인 레이아웃 및 테두리 설정 */
+        div,
+        header,
+        main,
+        footer,
+        nav {
+            box-sizing: border-box;
+            /*border: 1px solid red;*/
+        }
+
+        #wrap {
+            width: 90%;
+            max-width: 1200px;
+            height: 1000px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header 영역 */
+        header {
+            flex: 1.5;
+            display: flex;
+        }
+
+        #header_1 {
+            flex: 1.5;
+
+        }
+
+        #header_1 a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        #header_1 a img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        #header_2 {
+            flex: 6.5;
+            position: relative;
+            background-image: url('https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQq3DCEoVBAhQEHxwlDtF0nMtE0zpeIWiVaZZLn4xadXN8h3Cb4dGXKxoHBGaVLKorptmx06qtHyW3URbSXkJWTp14uXsIcB2teS17sEeRPAjdrnkc');
+            background-size: cover;
+            background-position: center;
+
+        }
+
+        #header_3 {
+            flex: 2;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #login-area {
+            width: 200px;
+            height: 150px;
+            border-radius: 20px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.14);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        #login-input input {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 1px 1px 1px lightgray;
+
+            &:focus {
+                outline: 1px solid lightgray;
+            }
+        }
+
+        #login-btn button {
+            width: 176px;
+            background: none;
+            border-radius: 10px;
+            border: 1px solid lightgray;
+
+            &:hover {
+                cursor: pointer;
+                background: rgba(0, 0, 0, 0.04);
+            }
+        }
+
+        #input-id input,
+        #input-pwd input {
+            background: white;
+            margin: 0;
+            padding: 0;
+            width: 170px;
+            height: 20px;
+        }
+
+        #input-id>p,
+        #input-pwd>p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Navigation 영역 (메인 메뉴) --- */
+        nav {
+            flex: 0.5;
+            display: flex;
+        }
+
+        #nav_1 {
+            width: 120px;
+            display: block;
+            position: relative;
+            /* 하위 메뉴의 위치 기준점 */
+            list-style: none;
+            /* 리스트 점 제거 */
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 하위 메뉴 전체 (CPU, 메인보드 등) 숨기기 */
+        .sub-menu {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 메인 메뉴에 마우스를 올렸을 때 하위 메뉴 보이기 */
+        #nav_1:hover .sub-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- 하위 메뉴 (라이젠, 인텔 등) --- */
+        .sub-sub-menu {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            /* 부모 메뉴의 오른쪽에 위치 */
+            width: 150px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* CPU 메뉴에 마우스를 올렸을 때 하위 하위 메뉴 보이기 */
+        .sub-menu>li:hover>.sub-sub-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* 메뉴 항목 기본 스타일 */
+        #nav_1 li {
+            background-color: darkgray;
+            border: none;
+            padding: 8px 10px;
+            color: azure;
+            border-radius: 15px;
+        }
+
+        #nav_1 a {
+            text-decoration: none;
+            color: azure;
+            display: block;
+        }
+
+        #nav_1 a:hover,
+        #nav_1 span:hover {
+            color: rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+
+
+
+        /*=============================*/
+        #nav_2 {
+            width: 120px;
+            display: block;
+            position: relative;
+            /* 하위 메뉴의 위치 기준점 */
+            list-style: none;
+            /* 리스트 점 제거 */
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 하위 메뉴 전체 (CPU, 메인보드 등) 숨기기 */
+        .sub-menu {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 메인 메뉴에 마우스를 올렸을 때 하위 메뉴 보이기 */
+        #nav_2:hover .sub-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- 하위 메뉴 (라이젠, 인텔 등) --- */
+        .sub-sub-menu {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            /* 부모 메뉴의 오른쪽에 위치 */
+            width: 150px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* CPU 메뉴에 마우스를 올렸을 때 하위 하위 메뉴 보이기 */
+        .sub-menu>li:hover>.sub-sub-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* 메뉴 항목 기본 스타일 */
+        #nav_2 li {
+            background-color: darkgray;
+            border: none;
+            padding: 8px 10px;
+            color: azure;
+            border-radius: 15px;
+        }
+
+        #nav_2 a {
+            text-decoration: none;
+            color: azure;
+            display: block;
+        }
+
+        #nav_2 a:hover,
+        #nav_2 span:hover {
+            color: rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        /*==============*/
+        #nav_3 {
+            width: 120px;
+            display: block;
+            position: relative;
+            /* 하위 메뉴의 위치 기준점 */
+            list-style: none;
+            /* 리스트 점 제거 */
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 하위 메뉴 전체 (CPU, 메인보드 등) 숨기기 */
+        .sub-menu {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 메인 메뉴에 마우스를 올렸을 때 하위 메뉴 보이기 */
+        #nav_3:hover .sub-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* --- 하위 메뉴 (라이젠, 인텔 등) --- */
+        .sub-sub-menu {
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.3s linear;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            /* 부모 메뉴의 오른쪽에 위치 */
+            width: 150px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* CPU 메뉴에 마우스를 올렸을 때 하위 하위 메뉴 보이기 */
+        .sub-menu>li:hover>.sub-sub-menu {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* 메뉴 항목 기본 스타일 */
+        #nav_3 li {
+            background-color: darkgray;
+            border: none;
+            padding: 8px 10px;
+            color: azure;
+            border-radius: 15px;
+        }
+
+        #nav_3 a {
+            text-decoration: none;
+            color: azure;
+            display: block;
+        }
+
+        #nav_3 a:hover,
+        #nav_3 span:hover {
+            color: rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        /**/
+        #nav_2 {
+            flex: 1.5;
+        }
+
+        #nav_3 {
+            flex: 1.5;
+        }
+
+        #nav_4 {
+            flex: 5.5;
+        }
+
+        #nav_4 input {
+            height: 25px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid lightgray;
+        }
+
+        #nav_4 button {
+            height: 27px;
+            background-color: #f0f0f0;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Main 및 Footer 영역 */
+        main {
+            flex: 6.5;
+            display: flex;
+            background-image: url('https://item.kakaocdn.net/do/218bdb82c9a7456ee2080fe14a4642927154249a3890514a43687a85e6b6cc82');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        footer {
+            flex: 1.5;
+            display: flex;
+        }
+
+        #foot1 {
+            flex: 8;
+        }
+
+        #foot2 {
+            flex: 2;
+        }
+
+        #footer_1,
+        #footer_2 {
+            width: 100%;
+        }
+
+        #footer_1 {
+            height: 20%;
+            background-color: ivory;
+        }
+
+        #footer_2 {
+            height: 80%;
+        }
+
+        /* footer_1의 자식요소 a태그만 선택 */
+        #footer_1>a {
+            text-decoration: none;
+            color: black;
+            margin: 33px;
+            vertical-align: middle;
+
+            &:hover {
+                color: yellowgreen;
+            }
+        }
+
+        /* p태그에 대한 세부 스타일 설정 */
+        #footer_2>p {
+            width: 100%;
+            margin: 0;
+            background-color: #79786f77;
+            font-weight: lighter;
+        }
+
+        #p_1 {
+            height: 80%;
+            font-size: 14px;
+            padding-top: 5px;
+            padding-left: 4px;
+        }
+
+        #p_2 {
+            height: 20%;
+            font-size: 11px;
+            padding-left: 4px;
+            padding-bottom: 5px;
+        }
+
+        #foot2 {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        #foot2 img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+            <div id="header_1">
+                <a href="/">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC61eN2cn3U4gG0bmMMmryigF3akh5UayvA-L-a3JxpM4ArqD6G-y1O8Ie_u54"
+                        alt="로고">
+                </a>
+            </div>
+            <div id="header_2"></div>
+            <div id="header_3">
+                <div id="login-area">
+
+                    <div id="login-input">
+                        <div id="input-id">
+                            <p>아이디</p>
+                            <div><input type="text"></div>
+                        </div>
+                        <div id="input-pwd">
+                            <p>비밀번호</p>
+                            <div><input type="password"></div>
+                        </div>
+                    </div>
+                    <div id="login-btn">
+                        <button>로그인</button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+        <nav>
+            <ul id="nav_1">
+                <li>
+                    메뉴
+                    <ul class="sub-menu">
+                        <li>
+                            <span>CPU</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">라이젠 6세대</a></li>
+                                <li><a href="#">라이젠 5~4세대</a></li>
+                                <li><a href="#">인텔</a></li>
+                                <li><a href="#">인텔 14세대</a></li>
+                                <li><a href="#">인텔 13~12세대</a></li>
+                                <li><a href="#">라이젠6세대</a></li>
+                                <li><a href="#">인텔 14세대</a></li>
+                            </ul>
+                        </li>
+                        <li><span>메인보드</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">라이젠용 메인보드</a></li>
+                                <li><a href="#">인텔용 메인보드</a></li>
+                                <li><a href="#">AMD AM5 소켓</a></li>
+                                <li><a href="#">인텔 14세대용</a></li>
+                            </ul>
+                        </li>
+                        <li><span>그래픽카드</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">NVDIA 계열</a></li>
+                                <li><a href="#">AMD 계열</a></li>
+                                <li><a href="#">INTEL 계열</a></li>
+                                <li><a href="#">VGA 지지대/쿨러</a></li>
+                            </ul>
+                        </li>
+                        <li><span>램</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">PC용 DDR5</a></li>
+                                <li><a href="#">PC용 DDR4</a></li>
+                                <li><a href="#">PC용 DDR3</a></li>
+                                <li><a href="#">노트북용 DDR5</a></li>
+                                <li><a href="#">노트북용 DDR4</a></li>
+                                <li><a href="#">노트북용 DDR3</a></li>
+                                <li><a href="#">중고 RAM</a></li>
+                            </ul>
+                        </li>
+                        <li><span>파워</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">ATX 3.x 파워</a></li>
+                                <li><a href="#">M-ATX 3.x 파워</a></li>
+                                <li><a href="#">모듈러 파워</a></li>
+                                <li><a href="#">80 PLUS 인증 파워</a></li>
+                                <li><a href="#">1000W 이상 파워</a></li>
+                                <li><a href="#">화이트 색상 파워</a></li>
+                                <li><a href="#">UPS</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul id="nav_2">
+                <li>
+                    완제품PC
+                    <ul class="sub-menu">
+                        <li>
+                            <span>사무용</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">0~30만원대</a></li>
+                                <li><a href="#">30~50만원대</a></li>
+                                <li><a href="#">50~80만원대</a></li>
+                                <li><a href="#">80~90만원대</a></li>
+                            </ul>
+                        </li>
+                        <li><span>100만원대</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">100~110만원대</a></li>
+                                <li><a href="#">110~130만원대</a></li>
+                                <li><a href="#">130~150만원대</a></li>
+                                <li><a href="#">150~180만원대</a></li>
+                                <li><a href="#">180~190만원대</a></li>
+                            </ul>
+                        </li>
+                        <li><span>200만원대</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">200만원대</a></li>
+                                <li><a href="#">200~210만원대</a></li>
+                                <li><a href="#">210~220만원대</a></li>
+                                <li><a href="#">220~240만원대</a></li>
+                                <li><a href="#">240~250만원대</a></li>
+                                <li><a href="#">250~280만원대</a></li>
+                                <li><a href="#">280~290만원대</a></li>
+                            </ul>
+                        </li>
+                        <li><span>300만원대</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">300만원대</a></li>
+                                <li><a href="#">300~310만원대</a></li>
+                                <li><a href="#">310~320만원대</a></li>
+                                <li><a href="#">320~340만원대</a></li>
+                                <li><a href="#">340~350만원대</a></li>
+                                <li><a href="#">350~380만원대</a></li>
+                                <li><a href="#">380~390만원대</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul id="nav_3">
+                <li>
+                    FAQ
+                    <ul class="sub-menu">
+                        <li>
+                            <span>Q&A</span>
+                            <ul class="sub-sub-menu">
+                                <li><a href="#">자주묻는 질문</a></li>
+                                <li><a href="#">1대1 문의 게시판</a></li>
+                                <li><a href="#">대량주문 문의</a></li>
+                                <li><a href="#">고객 VOC</a></li>
+                                <li><a href="#">AS문의</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div id="nav_4">
+                <input type="search" placeholder="상품 검색">
+                <button>검색</button>
+            </div>
+        </nav>
+        <main></main>
+        <footer>
+            <div id="foot1">
+                <div id="footer_1">
+                    <a href="#">이용약관 </a> |
+                    <a href="#">개인정보 처리방침</a> |
+                    <a href="#">사이트맵</a>
+                </div>
+                <div id="footer_2">
+                    <p id="p_1">
+                        강남점 1관 : 서울특별시 강남구 테헤란로14길 6 남도빌딩 2F, 3F, 4F, 5F, 6F <br>
+                        강남점 2관 : 서울특별시 강남구 테헤란로10길 9 그랑프리 빌딩 4F, 5F, 7F <br>
+                        강남점 3관 : 서울특별시 강남구 테헤란로 130 호산빌딩 5F, 6F <br>
+                        종로점 : 서울특별시 중구 남대문로 120 그레이츠 청계(구 대일빌딩) 2F, 3F <br>
+                    </p>
+                    <p id="p_2">
+                        Copyright © 2025 KH JongRo A-Class All Right Reserved
+                    </p>
+                </div>
+            </div>
+            <div id="foot2">
+                <img src="https://cdn.pixabay.com/photo/2019/09/16/22/38/service-4482162_960_720.jpg" alt="고객센터">
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

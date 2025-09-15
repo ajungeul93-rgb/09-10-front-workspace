@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>검색창이야</title>
+    <style>
+        div, form{
+            border: 1px solid red;
+            box-sizing: border-box;
+        }
+        #header_2{
+            width: 650px;
+            height: 160px;
+        }
+
+        /*----------------------------------------------------------------------------------*/
+        #header_2 {
+            position: relative;
+        }
+
+
+        #search-form{
+            width: 65%;
+            height: 40%;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+        }
+
+        /* 검색창 form태그 내부 div속성*/
+        #search-form > div{
+            height: 100%;
+            float: left;
+        }
+
+        #search-text{
+            width: 80%;
+            
+        }
+        #search-btn{
+            width: 20%;
+        }
+
+        /*  input요소들 크기 늘리기 */
+        #search-form input {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            border: 2px solid grey;
+            background-image: url(https://blog.kakaocdn.net/dna/ye9gd/btsNjJXcPH2/AAAAAAAAAAAAAAAAAAAAAGZnaYP5TgfFepiLfSYfA6CoOi58jMjtRVwEOLwR_3PY/img.gif?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&expires=1759244399&allow_ip=&allow_referer=&signature=8TDQ554zNysJQBr3h3ecOd584HY%3D);
+            background-size:contain;
+            border-radius: 5px;
+        }
+
+        #search-form input:focus{
+            outline: 4px dashed gold;
+            
+        }
+
+        #search-form input[type="submit"]{
+            color: whitesmoke;
+            font-weight: 800;
+            font-size: 20px;
+            background-image: url(https://img2.quasarzone.co.kr/img/data/img/editor/1902/1902___795767943.gif);
+            background-size: cover;
+            
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header_2">
+
+        <form action="search.kh" method="get" id="search-form">
+            <div id="search-text">
+                <input type="text" name="query">
+            </div>
+            <div id="search-btn">
+                <input type="submit" value="search">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
