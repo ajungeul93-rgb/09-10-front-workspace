@@ -75,7 +75,7 @@
 
     <script>
 
-        
+
 
         const colorBtn = document.querySelector("#color-btn");
 
@@ -94,9 +94,9 @@
                 colorDiv.style.backgroundColor = "beige";
             } else if (colorDiv.style.backgroundColor == "beige") {
                 colorDiv.style.backgroundColor = "grennyellow";
-            } else (colorDiv.style.backgroundColor == "grennyellow") 
-                colorDiv.style.backgroundColor = "yellowgreen";
-            
+            } else (colorDiv.style.backgroundColor == "grennyellow")
+            colorDiv.style.backgroundColor = "yellowgreen";
+
         }
     </script>
 
@@ -115,7 +115,7 @@
     <button onclick="tag();"> 태그명으로 접근하기 </button>
 
     <script>
-        function tag(){
+        function tag() {
 
             // document.getElmentsByTagName('태그명');
             const array = document.getElementsByTagName("li");
@@ -126,12 +126,158 @@
             // 자바스크립트에서 배열은 [] 로 표현
 
             array[0].style.backgroundColor = 'red';
+            array[1].style.backgroundColor = 'orange';
+            array[2].style.backgroundColor = 'yellow';
+            array[3].style.backgroundColor = 'green';
+            array[4].style.backgroundColor = 'blue';
+
+            let redColor = 100;
+            for (let i = 0; i < array.length; i++) {
+                array[i].style.backgroundColor = `rgb(${redColor} ,180 ,120)`;
+                redColor += 30;
+            }
         }
     </script>
 
+    <hr>
+
+    <h3> 3) name속성값으로 요소객체 접근 해보기 </h3>
+
+    <form action="요청받아줄서버" method="GET">
+        <fieldset>
+            <legend>메뉴</legend>
+
+            <input type="checkbox" name="menu" value="아메리카노" />아메리카노
+            <input type="checkbox" name="menu" value="콜드브루" />콜드브루
+            <input type="checkbox" name="menu" value="라떼" />라떼
+            <input type="checkbox" name="menu" value="딸기라떼" />딸기라떼
+            <input type="checkbox" name="menu" value="말차라떼" />말차라떼
 
 
 
+            <button type="submit">버튼</button>
+        </fieldset>
+    </form>
+
+    <button id="menu-btn">버튼이에용</button>
+
+    <script>
+
+        const btnEl = document.querySelector("#menu-btn");
+
+        btnEl.addEventListener("click", function () {
+
+            // name 속성 값을 이용해서 요소객체들 접근하기
+            // document.getElementsByName('name속성값');
+            const menus = document.getElementsByName('menu');
+
+
+            console.log(menus);
+            console.log(menus[0]);
+            console.log(menus[0].value);
+            console.log(menus[0].checked);
+
+            // 만약에 버튼을 클릭했을 때 아메리카노 체크 박스가
+            // 체크된 상태라면 alert창을 띄우겠다.
+            // if(menus[0].checked){
+            //    alert("아메리카노 체크");
+            // }
+            // 버튼 클릭시
+            // 체크가 된 체크박스의 value속성값을
+            // 순차적으로 나열하여
+            // alert창에 출력하시오.
+
+            // 선택하신 메뉴는 아메리카노 라떼 입니다.
+            // 선택하신 메뉴는 아메리카노 말차라떼 입니다.
+
+            /*if (menus[0].checked) {
+                checkMenu += ' ' + menus[0].value;
+                }
+                if (menus[1].checked) {
+                    checkMenu += ' ' + menus[1].value;
+                    }
+                    if (menus[2].checked) {
+                        checkMenu += ' ' + menus[2].value;
+                        }*/
+
+
+            let selectedMenu = [];
+            for (let i = 0; i < menus.length; i++) {
+                if (menus[i].checked) {
+                    selectedMenu.push(menus[i].value);
+                }
+            }
+
+            if (selectedMenu.length > 0) {
+                alert("선택하신 메뉴는 " + selectedMenu.join(", ") + " 입니다.");
+            } else {
+                alert("선택된 메뉴가 없습니다.");
+            }
+            /*let checkMenu = "";
+
+            for (let i = 0; i < menus.length; i++) {
+                if (menus[i].checked) {
+                    checkMenu += '' + menus[0].value;
+                }
+            }
+            const array = [...menus];
+            const selected = array.filter((e) => e.checked).mep(m) => m.value;
+            console.log(`선택한 메뉴를 ${selected}`);
+
+            if (checkMenu != "") {
+                alert(`선택하신 메뉴는 ${selected}입니다.`);
+            }*/
+
+            // 자바스크립트의 논리값
+
+            // 자바의 논리값 == ture / false
+
+            // 자바스크립트는 모든 값이 논리값으로 쓰일 수 있음
+            // ture / false
+            // Falsy
+            // 0, 0.0, '', "", null, undefined, NaN
+
+
+            console.log(+"a");
+            console.log("b"+"a"+ +"a"+"a");
+            console.log(999999999999999999999999999999);
+        });
+    </script>
+
+    <hr>
+
+    <h4> 4) 클래스 속성명으로 요소 객체들 접근하기 </h4>
+
+    <div class="test"></div>
+    <p class="test"></p>
+    <ul class="test">
+        <li>
+            <pre class="test"></pre>
+        </li>
+        <li>
+            <pre class="test"></pre>
+        </li>
+        <li>
+            <pre class="test"></pre>
+        </li>
+    </ul>
+
+    <button onclick="accessClass();">class속성으로 선택하기</button>
+
+    <script>
+        function accessClass(){
+
+            // document.getElementsByClassName('클래스 속성값');
+
+            console.log(document.getElementsByClassName("test"));
+
+            const tests = document.querySelectorAll(".test");
+
+            console.log(tests);
+
+        }
+
+    </script>
 
 </body>
 
