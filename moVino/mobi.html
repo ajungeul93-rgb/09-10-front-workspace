@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mobile mabinogi main</title>
+
+    <link rel="stylesheet" href="resources/css/main.css">
+    <link rel="stylesheet" href="resources/css/header.css">
+    <link rel="stylesheet" href="resources/css/footer.css">
+
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+            <a href="#">
+                <img src="resources/image/mabinogiFan_logo.png" alt="사이트 로고">
+            </a>
+        </div>
+        <div id="main-menu">
+            <ul>
+                <li><a href="#">게임정보</a></li>
+                <li class="dropdown">
+                    <a href="#">랭킹</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">전투력 랭킹</a></li>
+                        <li><a href="#">생활력 랭킹</a></li>
+                        <li><a href="#">매력 랭킹</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">커뮤니티</a></li>
+                <li><a href="#">고객센터</a></li>
+            </ul>
+        </div>
+        <div id="utility-menu">
+            <a href="#" class="icon-link" id="theme-toggle-btn">⚙️</a>
+            <a href="login.html" class="login-button">로그인</a>
+        </div>
+    </header>
+    <main>
+        <div id="mainContent" class="main">
+            <div id="banner">
+                <img src="resources/image/91120_272679_5738.jpg" alt="마비노기 모바일 낭만과 모험의 세상 사전 등록">
+            </div>
+            <div id="dailyDungeon">
+                <div class="dungeon-day">
+                    <div class="day-text">월, 목</div>
+                    <div class="dungeon-icons">
+                        <img src="resources/image/황금주괴 아이콘.png" alt="황금 주괴 아이콘">
+                    </div>
+                </div>
+                <div class="dungeon-day">
+                    <div class="day-text">화, 금</div>
+                    <div class="dungeon-icons">
+                        <img src="resources/image/스타프리즘.png" alt="보석 아이콘">
+                    </div>
+                </div>
+                <div class="dungeon-day">
+                    <div class="day-text">수, 토</div>
+                    <div class="dungeon-icons">
+                        <img src="resources/image/재연소 촉매제.png" alt="연금술 촉매 아이콘">
+                    </div>
+                </div>
+                <div class="dungeon-day">
+                    <div class="day-text">일</div>
+                    <div class="dungeon-icons">
+                        <img src="resources/image/게시판.webp" alt="자유 선택 아이콘">
+                    </div>
+                </div>
+            </div>
+            <div id="board">
+                <div id="announcement">공지사항</div>
+                <div id="patch">패치노트</div>
+            </div>
+            <div id="event">현재 진행중인 이벤트</div>
+        </div>
+        <div id="sidContent" class="main">
+            <div id="search">검색</div>
+            <div id="charImage">여러 마비노기 링크</div>
+            <div id="advertisement">광고?</div>
+        </div>
+    </main>
+    <footer>
+        <div id="footer1">
+            <p>ⓒ 2003-2024 NEXON Korea Corporation & NEXON Co., Ltd. All rights reserved.</p>
+            <p>ⓒ 2003-2024 devCAT Studio Inc. All rights reserved.</p>
+            <p>본 페이지는 <strong>비공식 마비노기 팬 페이지</strong>이며,
+                모든 저작권은 넥슨과 데브캣 스튜디오에 있습니다.</p>
+        </div>
+        <div id="footer2">
+            <ul>
+                <li><a href="https://member.nexon.com/policy/stipulation.aspx" target="_blank">넥슨 이용약관</a></li>
+                <li><a href="https://member.nexon.com/policy/privacy.aspx" target="_blank">넥슨 개인정보처리방침</a></li>
+            </ul>
+            <p class="fan-notice">
+                ※ 본 사이트는 개인이 운영하는 팬페이지로,
+                별도의 회원가입이나 개인정보 수집을 하지 않습니다.
+            </p>
+        </div>
+    </footer>
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle-btn');
+        const body = document.body;
+
+        themeToggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+
+</html>

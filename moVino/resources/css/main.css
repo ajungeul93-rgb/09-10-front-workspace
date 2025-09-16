@@ -1,0 +1,202 @@
+:root {
+    --bg-color: #E8F0F7; /* 밝은 하늘색 배경 (전체) */
+    --text-color: #333; /* 기본 텍스트 색상 */
+    --header-bg: #A7C7E7;
+    --main-bg: #F7F9FC; /* 메인 콘텐츠 영역 밝은 배경 */
+    --footer-bg: #D3E0F5; /* 푸터 배경 */
+    --box-border-color: #C0D9EE; /* 박스 테두리 색상 */
+}
+
+body {
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 폰트 변경 */
+}
+
+main {
+    flex: 1;
+    background-color: var(--main-bg);
+    width: 70%;
+    min-width: 800px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    border-radius: 8px; /* 메인 영역 모서리 둥글게 */
+    overflow: hidden; /* 내부 요소가 넘치지 않도록 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 메인 영역 그림자 */
+}
+
+main>#mainContent {
+    flex: 75%;
+    border-right: 1px solid var(--box-border-color); /* 우측 테두리 */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+main #banner {
+    flex: 30%;
+    border-bottom: 1px solid var(--box-border-color); /* 하단 테두리 */
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+main #banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 요일 박스 스타일 */
+#dailyDungeon {
+    flex: 15%;
+    border-bottom: 1px solid var(--box-border-color); /* 하단 테두리 */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch; /* 아이템들이 높이를 채우도록 */
+    padding: 10px;
+    background-color: #F0F5F9; /* 요일 던전 섹션 배경색 */
+}
+
+/* 각 요일 박스 */
+.dungeon-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-basis: 23%;
+    flex-shrink: 0;
+    height: auto; /* 높이를 콘텐츠에 따라 유동적으로 */
+    text-align: center;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid var(--box-border-color); /* 각 박스 테두리 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    background-color: #FFFFFF; /* 각 요일 박스 배경색 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* 각 박스 그림자 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dungeon-day:hover {
+    transform: translateY(-3px); /* 호버 시 약간 위로 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dungeon-day .day-text {
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #4A69BD; /* 요일 텍스트 색상 */
+    margin-bottom: 5px; /* 이미지와의 간격 */
+}
+
+.dungeon-icons {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dungeon-icons img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px; /* 이미지 모서리 둥글게 */
+}
+
+main #board {
+    flex: 40%;
+    border-bottom: 1px solid var(--box-border-color);
+    box-sizing: border-box;
+    display: flex;
+    background-color: #F7F9FC; /* 게시판 섹션 배경색 */
+}
+
+main #board>div {
+    flex: 1;
+    border-right: 1px solid var(--box-border-color); /* 공지사항/패치노트 사이 테두리 */
+    box-sizing: border-box;
+    padding: 15px; /* 내부 여백 */
+}
+
+main #board>div:last-child {
+    border-right: none; /* 마지막 div는 우측 테두리 제거 */
+}
+
+main #announcement, main #patch {
+    font-weight: bold;
+    color: #4A69BD;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+
+main #event {
+    flex: 15%;
+    border-bottom: none; /* 이벤트 영역은 하단 테두리 없음 */
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: #E8F0F7; /* 이벤트 섹션 배경색 */
+    font-weight: bold;
+    color: #4A69BD;
+    font-size: 18px;
+}
+
+/* 메인 우측 영역 */
+main>#sidContent {
+    flex: 25%;
+    border-left: 1px solid var(--box-border-color); /* 좌측 테두리 */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #F0F5F9; /* 사이드 콘텐츠 배경색 */
+}
+
+#search {
+    flex: 15%;
+    border-bottom: 1px solid var(--box-border-color);
+    box-sizing: border-box;
+    padding: 15px;
+    font-weight: bold;
+    color: #4A69BD;
+    font-size: 18px;
+}
+
+#charImage {
+    flex: 55%;
+    border-bottom: 1px solid var(--box-border-color);
+    box-sizing: border-box;
+    padding: 15px;
+    font-weight: bold;
+    color: #4A69BD;
+    font-size: 18px;
+}
+
+#advertisement {
+    flex: 30%;
+    border-bottom: none;
+    box-sizing: border-box;
+    padding: 15px;
+    font-weight: bold;
+    color: #4A69BD;
+    font-size: 18px;
+}
+
+body.dark-mode {
+    --bg-color: #36454F; /* 다크 모드 배경 (차콜) */
+    --text-color: #E0E0E0; /* 다크 모드 텍스트 */
+    --header-bg: #4A6572; /* 다크 모드 헤더 */
+    --main-bg: #5D7A8C; /* 다크 모드 메인 */
+    --footer-bg: #4A6572; /* 다크 모드 푸터 */
+    --box-border-color: #6C8E9B; /* 다크 모드 박스 테두리 */
+}
