@@ -24,7 +24,7 @@
             width: 230px;
             height: 360px;
             padding-bottom: 20px;
-            dispaly: inline-block;
+            display: inline-block;
 
             &:hover {
                 box-shadow: 1px 2px 4px lightgrey;
@@ -100,14 +100,26 @@
 
             console.log(webtoons);
 
-            const skeleton = webtoons[0];
-
+            //const skeleton = webtoons[0];
+            /*
             const webtoon1 = `<div class="card">
                                 <image src="${skeleton.image}" />
                                 <h4>${skeleton.title}</h4>
                                 <p>${skeleton.autor}</p>
                               </div>`;
             document.getElementById("wrap").innerHTML = webtoon1;
+            */
+
+            let element = "";
+            for (let webtoon of webtoons) {
+                element += `<div class="card">
+                                <img src="${webtoon.image}">
+                                <h4>${webtoon.title}</h4>
+                                <p>${webtoon.autor}</p>
+                            </div>`;
+            };
+
+            document.getElementById("wrap").innerHTML = element;
         }
     </script>
 
